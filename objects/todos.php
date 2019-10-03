@@ -37,6 +37,19 @@ class Todos{
     }
 
     return false;
+  }
 
+  function readOne(){
+
+    $query = ("SELECT * FROM todos WHERE id=?");
+
+    $stmt = $this->connexion->prepare( $query );
+    $stmt->bindParam(1, $this->id);
+    $stmt->execute();
+
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    $this->title = $row['title'];
+    $this->description = $row['description'];
   }
 }
