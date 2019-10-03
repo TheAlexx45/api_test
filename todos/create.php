@@ -20,7 +20,7 @@ if(
     !empty($data->description)
 ){
 
-    $todos->title = $data->name;
+    $todos->title = $data->title;
     $todos->description = $data->description;
 
     if($todos->create()){
