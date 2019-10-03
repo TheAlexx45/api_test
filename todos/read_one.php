@@ -25,7 +25,6 @@ if($todos->title!=null){
     );
 
     http_response_code(200);
-    
     echo json_encode($todos_arr);
 } else{
 

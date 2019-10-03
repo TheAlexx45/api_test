@@ -2,7 +2,6 @@
 class Todos{
 
     private $connexion;
-    private $table_name = "todos";
 
     public $id;
     public $title;
@@ -41,7 +40,7 @@ class Todos{
 
   function readOne(){
 
-    $query = ("SELECT * FROM todos WHERE id=?");
+    $query = ("SELECT * FROM todos WHERE id=? ");
 
     $stmt = $this->connexion->prepare($query);
     $stmt->bindParam(1, $this->id);
@@ -55,12 +54,10 @@ class Todos{
 
   function delete(){
 
-    $query = ("DELETE FROM todos WHERE id=?");
+    $query = ("DELETE FROM todos WHERE id=? ");
 
     $stmt = $this->connexion->prepare($query);
-
     $this->id=htmlspecialchars(strip_tags($this->id));
-
     $stmt->bindParam(1, $this->id);
 
     if($stmt->execute()){
