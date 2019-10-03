@@ -15,10 +15,7 @@ $todos = new Todos($db);
 
 $data = json_decode(file_get_contents("php://input"));
 
-if(
-    !empty($data->title) &&
-    !empty($data->description)
-){
+if( !empty($data->title) && !empty($data->description) ){
 
     $todos->title = $data->title;
     $todos->description = $data->description;
